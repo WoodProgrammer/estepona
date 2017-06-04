@@ -27,14 +27,12 @@ int main(){
     }
 
     sending_data  = send(sockfd, message, strlen(message), 0);
-
     printf("Sent : %d\tWent: %d\n", strlen(message), sending_data);
-
     printf("%d bit sent:\t%s\n", strlen(message), message);
 
     coming_data = recv(sockfd, &str, 1000-1, 0);
 
     printf("%d bit received:\t%s\n", coming_data, str);
 
-    close(sockfd);
+  return 0;
 }

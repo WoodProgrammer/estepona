@@ -29,7 +29,9 @@ if (socketfd == -1){
 bind(socketfd,(struct sockaddr * )&sock_data,sizeof(struct sockaddr));
 connect(socketfd,(struct sockaddr * )&sock_data,sizeof(struct sockaddr));
 int struct_size = sizeof(clientAddr);
+
 while (1){
+
   listen(socketfd,20);
 
   structSize = sizeof(clientAddr);
@@ -37,9 +39,10 @@ while (1){
 
   received_data = recv(newfd,&str,999,0);
   printf("%d bit gave:\t%s\n", received_data, str);
-  char *data_to_send = "HELLOCLIENT";
-
-  sent_data = send(newfd,data_to_send , strlen(data_to_send), 0);
+  char *data_to_send = "akjnlakşdkadiaşdnonıpowlqşdnqlşdqwidq";
+  for(int i=0;i<=100;i++){
+    sent_data = send(newfd,data_to_send , strlen(data_to_send), 0);
+  }
   printf("%d bit data sent \t \n",sent_data );
 }
 
