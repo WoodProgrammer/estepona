@@ -5,7 +5,7 @@
 #include <netinet/in.h>
 #include <errno.h>
 
-#define SUNUCUPORT 8080
+#define SUNUCUPORT 5000
 #define SUNUCUIP "127.0.0.1"
 #define AZAMIUZUNLUK 8080
 
@@ -25,14 +25,8 @@ int main(){
     if(-1 == connect(sockfd, (struct sockaddr *)&serverAddr, sizeof(struct sockaddr))){
         perror("connect");
     }
-
-    sending_data  = send(sockfd, message, strlen(message), 0);
-    printf("Sent : %d\tWent: %d\n", strlen(message), sending_data);
-    printf("%d bit sent:\t%s\n", strlen(message), message);
-
-    coming_data = recv(sockfd, &str, 1000-1, 0);
-
-    printf("%d bit received:\t%s\n", coming_data, str);
-
+    while(1){
+      sending_data  = send(sockfd, message, strlen(message), 0);
+    }
   return 0;
 }
