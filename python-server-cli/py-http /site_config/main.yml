@@ -1,0 +1,12 @@
+version: 1.0
+author:
+    Developer
+thread_count:
+    5
+
+docs_path:
+    site_config/index.html
+
+cache_location:
+    simple_cache
+    
