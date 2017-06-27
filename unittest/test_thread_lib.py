@@ -16,7 +16,13 @@ def worker():
     logging.debug('ending')
     return
 
-for i in range(3):
+
+
+def test_method():
+    print 123
+
+'''
+    for i in range(3):
     t = threading.Thread(target=worker)
     t.setDaemon(True)
     t.start()
@@ -27,3 +33,14 @@ for t in threading.enumerate():
         continue
     logging.debug('joining %s', t.getName())
     t.join()
+
+'''
+
+
+th1 = threading.Thread(target=test_method,args=())
+th2 = threading.Thread(target=test_method,args=())
+
+th1.start()
+th2.start()
+print threading.enumerate()
+logging.debug('WORKING')

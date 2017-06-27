@@ -2,7 +2,7 @@ import time
 import logging
 import socket
 
-
+import threading
 
 logging.basicConfig(level=logging.DEBUG,
                     format='(%(threadName)-10s) %(message)s',
@@ -27,7 +27,7 @@ class HTTP_SERVER(threading.Thread):
     sock.listen(5)
         
         
-        return
+        return 1
 
     
     
