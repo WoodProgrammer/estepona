@@ -1,6 +1,7 @@
+
 #include <stdio.h>
 #include <stdlib.h>
-#include "htmlpr.h"
+
 
 
 int hash(char * str){
@@ -13,8 +14,6 @@ int hash(char * str){
 	}
 	return sum % 10;
 }
-
-
 
 struct node {
 	char * str;
@@ -39,25 +38,54 @@ char * table_search(char * searched_file,struct table * t,struct node * z)
 	z = t->arr[search_key];
 	return z->str;	
 };
-int main(){
-
-	
-
-	struct node * a ;
-	struct table * t;
-	struct node * z;
 
 
-	int key  = hash("index.html");
 
+struct node * a ;
+struct table * t;
+struct node * tmp;
+
+
+void put(char * key,char * value);
+void get(char * key){
+		int hashed_key = hash(key);
+		if(t->arr[hashed_key] == NULL){
+
+			printf("NO DATA FOUND ! \n");
+		}
+		else{
+			tmp = t->arr[hashed_key];
+			printf("%s\n",tmp->str);
+		}
+
+	}	
+
+
+
+int main(){	
+
+
+	int key = hash("index.html");
+	int key2 = hash("game.html");
 	a = (node * )malloc(sizeof(node));
 	t = (table * )malloc(sizeof(table));
+	tmp = (table * )malloc(sizeof(node));
 	a->val  =1;
-	a->str= read_html_doc("index.html");
+	a->str= "Hebeleci Hubeleleleleleler.";
 	a->next = t->arr[key];
 	t->arr[key] = a;
+	tmp = t->arr[key];
 
-	printf("%s",table_search("index.html",t,z));
+
+
+
+	a->next = (node * )malloc(sizeof(node));
+	a->next->val  =1;
+	a->next->str= "Hebeleci Hubeleleleleleler2.";
+	a->next->next = t->arr[key2];
+	t->arr[key2] = a->next;
+	tmp = t->arr[key2];
+	get("game.html");
 
 
 
